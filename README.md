@@ -2,6 +2,10 @@
 
 ❌ Tic Tac Toe game made with core concents of javaScript ⭕
 
+![image](https://github.com/HashirHussain/tic-tac-toe/assets/5574091/ceb434ad-7094-4eae-99bf-99e6a96bf007)
+
+
+
 #### [Click here to play!](https://hashirhussain.github.io/tic-tac-toe/)
 
 ### Run in your computer
