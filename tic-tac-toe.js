@@ -4,6 +4,7 @@
   const O = "⭕";
   let chances = 9;
   let winner = null;
+  const messageDOM = DOM.getElementById("message");
   const winningPattern = [
     [0, 1, 2],
     [3, 4, 5],
@@ -15,14 +16,14 @@
     [2, 4, 6],
   ];
 
-  function eventHandler(evt) {
-    if (evt.target.classList.contains("cell") && !evt.target.innerHTML) {
-      evt.preventDefault();
+  function onClickHandler(index, elm) {
+    if (!elm.target.innerHTML) {
+      elm.preventDefault();
       if (isWinnerDeclared() === false && isChanceLeft() == true) {
         chances--;
-        setValueToBox(evt);
+        fillBox(index);
         isXTurn = !isXTurn;
-        setMessage(`${getCurrentTurn()}'s turn`);
+        setMessage(`${getCurrentTurn()}'s turn now`);
         checkWinner();
       }
 
@@ -32,10 +33,9 @@
     }
   }
 
-  function setValueToBox(evt) {
-    const position = evt.target.dataset.position;
-    const box = DOM.getElementsByClassName("cell")[position];
-    box.innerHTML = getCurrentTurn();
+  function fillBox(index) {
+    const cell = DOM.getElementsByClassName("cell")[index];
+    cell.innerHTML = getCurrentTurn();
   }
 
   function checkWinner() {
@@ -71,13 +71,18 @@
   }
 
   function setMessage(message) {
-    const elm = DOM.getElementsByClassName("message")[0];
-    elm.innerHTML = `<p>${message}</p>`;
+    messageDOM.innerHTML = `<p>${message}</p>`;
   }
 
+  // Initialization
   (() => {
-    // Init
-    window.addEventListener("click", eventHandler);
-    setMessage(`${getCurrentTurn()}'s turn`);
+    // Generate cells and assign them onclick handler
+    for (let index = 0; index < 9; index++) {
+      const cell = DOM.createElement("div");
+      cell.className = "cell";
+      cell.onclick = onClickHandler.bind(cell, index);
+      DOM.getElementById("grid").appendChild(cell);
+    }
+    setMessage(`Click on any block to start with ${getCurrentTurn()}`);
   })();
 })(document);
