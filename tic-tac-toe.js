@@ -1,6 +1,6 @@
 ((DOM) => {
   const XEmoji = ["🍌", "🍉", "🍓", "🍒", "🍍", "🍇", "🍑", "🥭"];
-  const OEmoji = ["🍆", "🥑", "🥦", "🌶", "🥕", "🌽", "🍅", "🥔"];
+  const OEmoji = ["🍆", "🥑", "🥦", "🥝", "🥕", "🌽", "🍅", "🥔"];
   let isXTurn = true;
   const X = XEmoji[Math.floor(Math.random() * XEmoji.length)];
   const O = OEmoji[Math.floor(Math.random() * OEmoji.length)];

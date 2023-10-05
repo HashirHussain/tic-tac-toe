@@ -1,10 +1,10 @@
 # Tic Tac Toe
 
-❌ Tic Tac Toe game made with core concents of javaScript ⭕
+Tic Tac Toe game made with fruits, vegetables and core concents of JavaScript
 
-![image](https://github.com/HashirHussain/tic-tac-toe/assets/5574091/ceb434ad-7094-4eae-99bf-99e6a96bf007)
+🍌 🍉 🍓 🍒 🍍 🍇 🍑 🥭 🍆 🥑 🥦 🥝 🥕 🌽 🍅 🥔
 
-
+![image](https://github.com/HashirHussain/tic-tac-toe/assets/5574091/ceb434ad-7094-4eae-99bf-99e6a96bf0
 
 #### [Click here to play!](https://hashirhussain.github.io/tic-tac-toe/)
 
