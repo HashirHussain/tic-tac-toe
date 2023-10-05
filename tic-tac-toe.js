@@ -1,10 +1,13 @@
 ((DOM) => {
+  const XEmoji = ["🍌", "🍉", "🍓", "🍒", "🍍", "🍇", "🍑", "🥭"];
+  const OEmoji = ["🍆", "🥑", "🥦", "🌶", "🥕", "🌽", "🍅", "🥔"];
   let isXTurn = true;
-  const X = "❌";
-  const O = "⭕";
+  const X = XEmoji[Math.floor(Math.random() * XEmoji.length)];
+  const O = OEmoji[Math.floor(Math.random() * OEmoji.length)];
   let chances = 9;
   let winner = null;
   const messageDOM = DOM.getElementById("message");
+  const gridDOM = DOM.getElementById("grid");
   const winningPattern = [
     [0, 1, 2],
     [3, 4, 5],
@@ -77,11 +80,12 @@
   // Initialization
   (() => {
     // Generate cells and assign them onclick handler
+    gridDOM.innerHTML = "";
     for (let index = 0; index < 9; index++) {
       const cell = DOM.createElement("div");
       cell.className = "cell";
       cell.onclick = onClickHandler.bind(cell, index);
-      DOM.getElementById("grid").appendChild(cell);
+      gridDOM.appendChild(cell);
     }
     setMessage(`Click on any block to start with ${getCurrentTurn()}`);
   })();
