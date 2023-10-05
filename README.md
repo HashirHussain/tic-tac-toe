@@ -2,6 +2,8 @@
 
 ❌ Tic Tac Toe game made with core concents of javaScript ⭕
 
+#### [Click here to play!](https://hashirhussain.github.io/tic-tac-toe/)
+
 ### Run in your computer
 
 You don't need to install anything, just clone this repo and open `index.html` file in your favorite browser.
