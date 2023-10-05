@@ -1,11 +1,12 @@
 ((DOM) => {
+  "use strict";
   const XEmoji = ["🍌", "🍉", "🍓", "🍒", "🍍", "🍇", "🍑", "🥭"];
   const OEmoji = ["🍆", "🥑", "🥦", "🥝", "🥕", "🌽", "🍅", "🥔"];
-  let isXTurn = true;
-  const X = XEmoji[Math.floor(Math.random() * XEmoji.length)];
-  const O = OEmoji[Math.floor(Math.random() * OEmoji.length)];
-  let chances = 9;
-  let winner = null;
+  let isXTurn;
+  let X;
+  let O;
+  let chances;
+  let winner;
   const messageDOM = DOM.getElementById("message");
   const gridDOM = DOM.getElementById("grid");
   const winningPattern = [
@@ -54,7 +55,7 @@
           boxes[b].classList.add("winner");
           boxes[c].classList.add("winner");
           winner = boxes[a].innerHTML;
-          setMessage(`<p>${winner} Won!<p>`);
+          setMessage(`${winner} Won!`);
           break;
         }
       }
@@ -77,8 +78,14 @@
     messageDOM.innerHTML = `<p>${message}</p>`;
   }
 
-  // Initialization
-  (() => {
+  function Init() {
+    //Set default values
+    isXTurn = true;
+    X = XEmoji[Math.floor(Math.random() * XEmoji.length)];
+    O = OEmoji[Math.floor(Math.random() * OEmoji.length)];
+    chances = 9;
+    winner = null;
+
     // Generate cells and assign them onclick handler
     gridDOM.innerHTML = "";
     for (let index = 0; index < 9; index++) {
@@ -88,5 +95,9 @@
       gridDOM.appendChild(cell);
     }
     setMessage(`Click on any block to start with ${getCurrentTurn()}`);
-  })();
+  }
+
+  DOM.getElementById("btn-restart").onclick = Init;
+
+  Init(); //Begin
 })(document);

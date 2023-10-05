@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-Tic Tac Toe game made with fruits, vegetables and core concents of JavaScript
+Tic Tac Toe game made with fruits, vegetables and core concepts of JavaScript
 
 🍌 🍉 🍓 🍒 🍍 🍇 🍑 🥭 🍆 🥑 🥦 🥝 🥕 🌽 🍅 🥔
 
@@ -20,7 +20,6 @@ You don't need to install anything, just clone this repo and open `index.html` f
 
 ### Scope of improvements
 
-- Restart button, so no need to refresh the page.
-- Selection between ❌ and ⭕ by the players.
-- Compete with computer or with other players over the internet (socket programming).
+-Play with Bot
+
 - Maintain history to preserve player's victories.
