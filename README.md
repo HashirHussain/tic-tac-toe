@@ -4,7 +4,8 @@ Tic Tac Toe game made with fruits, vegetables and core concents of JavaScript
 
 🍌 🍉 🍓 🍒 🍍 🍇 🍑 🥭 🍆 🥑 🥦 🥝 🥕 🌽 🍅 🥔
 
-![image](https://github.com/HashirHussain/tic-tac-toe/assets/5574091/ceb434ad-7094-4eae-99bf-99e6a96bf0
+![image](https://github.com/HashirHussain/tic-tac-toe/assets/5574091/3f5bf8d7-e8f3-486f-9d52-5479b9c57ec7)
+
 
 #### [Click here to play!](https://hashirhussain.github.io/tic-tac-toe/)
 
