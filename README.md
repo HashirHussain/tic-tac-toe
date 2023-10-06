@@ -1,8 +1,8 @@
-# Tic Tac Toe
+# Tic Tac Toe with fruits and veggies
 
 Tic Tac Toe game made with fruits, vegetables and core concepts of JavaScript
 
-🍌 🍉 🍓 🍒 🍍 🍇 🍑 🥭 🍆 🥑 🥦 🥝 🥕 🌽 🍅 🥔
+🍌 🍉 🍓 🍒 🍍 🍇 🍑 🥭 🍊 🍎 🥝 🍅 🍆 🥑 🥦 🥒 🥬 🥕 🌽 🥔 🧅 🍄
 
 ![image](./banner.jpeg)
 
