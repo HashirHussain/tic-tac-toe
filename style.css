@@ -14,14 +14,57 @@ body {
 }
 
 .title {
+  width: 100%;
   margin-top: 1rem;
+  text-align: center;
   font-size: 30px;
 }
 
-#message {
-  font-size: 18px;
-  padding: 0;
-  margin: 0;
+.title span {
+  margin: -3px;
+}
+
+.title span:nth-child(1),
+.title span:nth-child(5),
+.title span:nth-child(9) {
+  font-size: 40px;
+  color: #4d96ff;
+}
+
+.title span:nth-child(3),
+.title span:nth-child(7),
+.title span:nth-child(11) {
+  font-size: 40px;
+  color: #eb5353;
+}
+
+.title span:nth-child(2),
+.title span:nth-child(6),
+.title span:nth-child(10) {
+  color: #36ae7c;
+}
+
+.players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.players div {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #ffef82;
+}
+
+.players div.now {
+  background-color: #03c988;
+  outline: 2px solid #02a36d;
+}
+
+.players div.winner {
+  background-color: #03c988;
 }
 
 #grid {
@@ -48,6 +91,9 @@ body {
 
 .cell.winner {
   background-color: #03c988;
+  animation: shake ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .btn-restart {
@@ -56,6 +102,8 @@ body {
   border-color: #ffe958;
   letter-spacing: 2px;
   cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .btn-restart:active {
@@ -66,4 +114,27 @@ body {
   margin-top: 2rem;
   display: flex;
   gap: 1rem;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

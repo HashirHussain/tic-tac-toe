@@ -1,13 +1,38 @@
 ((DOM) => {
   "use strict";
-  const XEmoji = ["🍌", "🍉", "🍓", "🍒", "🍍", "🍇", "🍑", "🥭"];
-  const OEmoji = ["🍆", "🥑", "🥦", "🥝", "🥕", "🌽", "🍅", "🥔"];
+  const XEmoji = [
+    "🍌",
+    "🍉",
+    "🍓",
+    "🍒",
+    "🍍",
+    "🍇",
+    "🍑",
+    "🥭",
+    "🍊",
+    "🍎",
+    "🥝",
+  ];
+  const OEmoji = [
+    "🍅",
+    "🍆",
+    "🥑",
+    "🥦",
+    "🥒",
+    "🥬",
+    "🥕",
+    "🌽",
+    "🥔",
+    "🧅",
+    "🍄",
+  ];
   let isXTurn;
   let X;
   let O;
   let chances;
   let winner;
-  const messageDOM = DOM.getElementById("message");
+  const playerXDOM = DOM.getElementById("player-X");
+  const playerODOM = DOM.getElementById("player-O");
   const gridDOM = DOM.getElementById("grid");
   const winningPattern = [
     [0, 1, 2],
@@ -27,12 +52,12 @@
         chances--;
         fillBox(index);
         isXTurn = !isXTurn;
-        setMessage(`${getCurrentTurn()}'s turn now`);
+        highlightCurrentPlayer();
         checkWinner();
       }
 
       if (isChanceLeft() === false && isWinnerDeclared() === false) {
-        setMessage(`It's a tie!`);
+        clearPlayerSelection();
       }
     }
   }
@@ -40,6 +65,32 @@
   function fillBox(index) {
     const cell = DOM.getElementsByClassName("cell")[index];
     cell.innerHTML = getCurrentTurn();
+  }
+
+  function highlightCurrentPlayer() {
+    clearPlayerSelection();
+    if (isXTurn) {
+      playerXDOM.classList.add("now");
+      playerODOM.classList.remove("now");
+    } else {
+      playerXDOM.classList.remove("now");
+      playerODOM.classList.add("now");
+    }
+  }
+
+  function highlightWinner() {
+    clearPlayerSelection();
+
+    if (winner === X) {
+      playerXDOM.classList.add("winner");
+    } else {
+      playerODOM.classList.add("winner");
+    }
+  }
+
+  function clearPlayerSelection() {
+    playerXDOM.className = "";
+    playerODOM.className = "";
   }
 
   function checkWinner() {
@@ -55,7 +106,7 @@
           boxes[b].classList.add("winner");
           boxes[c].classList.add("winner");
           winner = boxes[a].innerHTML;
-          setMessage(`${winner} Won!`);
+          highlightWinner();
           break;
         }
       }
@@ -74,10 +125,6 @@
     return winner !== null;
   }
 
-  function setMessage(message) {
-    messageDOM.innerHTML = `<p>${message}</p>`;
-  }
-
   function Init() {
     //Set default values
     isXTurn = true;
@@ -94,7 +141,9 @@
       cell.onclick = onClickHandler.bind(cell, index);
       gridDOM.appendChild(cell);
     }
-    setMessage(`Click on any block to start with ${getCurrentTurn()}`);
+    playerXDOM.innerHTML = X;
+    playerODOM.innerHTML = O;
+    highlightCurrentPlayer();
   }
 
   DOM.getElementById("btn-restart").onclick = Init;
